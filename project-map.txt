@@ -1,0 +1,40 @@
+Folder PATH listing
+Volume serial number is 00000024 00B7:870C
+C:.
+|   package.json
+|   project-map.txt
+|   README.md
+|   
++---dist
+|   |   404.html
+|   |   contact.html
+|   |   content.json
+|   |   editor.html
+|   |   guide.html
+|   |   index.html
+|   |   plans.html
+|   |   robots.txt
+|   |   team.html
+|   |   _headers
+|   |   
+|   \---assets
+|       |   app.js
+|       |   brand.css
+|       |   content.js
+|       |   editor.css
+|       |   editor.js
+|       |   favicon.svg
+|       |   site.css
+|       |   
+|       +---fonts
+|       |       OFL.txt
+|       |       Vazirmatn.woff2
+|       |       
+|       \---images
+|               gym-sample.webp
+|               recovery-sample.webp
+|               
+\---scripts
+        check.mjs
+        render-pages.mjs
+        
