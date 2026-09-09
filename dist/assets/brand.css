@@ -1,0 +1,25 @@
+/* Brand overrides: edit this file without changing the main stylesheet.
+   Put your logo in assets/images/logo.svg (or .png/.webp), then enter
+   ./assets/images/logo.svg in the editor's logo field and export content.json.
+
+   To replace the font, copy your WOFF2 files into assets/fonts/ and uncomment:
+
+@font-face {
+  font-family: ArsisCustom;
+  src: url('./fonts/Arsis-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: ArsisCustom;
+  src: url('./fonts/Arsis-Bold.woff2') format('woff2');
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root { --font-family: ArsisCustom, Vazirmatn, Tahoma, Arial, sans-serif; }
+
+   If you have a variable font, use one @font-face with font-weight:100 900.
+*/
+:root { --brand: #95d4db; }

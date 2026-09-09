@@ -1,0 +1,10 @@
+{
+  "name": "arsis-gym-static",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "node scripts/render-pages.mjs",
+    "check": "node scripts/check.mjs"
+  }
+}
