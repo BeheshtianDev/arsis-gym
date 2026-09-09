@@ -34,12 +34,32 @@ const paths = {
   shield:
     '<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6Z"/><path d="m8 12 3 3 5-6"/>',
 };
-export const icon = (name, cls = "") =>
-  '<svg class="icon ' +
-  cls +
-  '" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-  (paths[name] || paths.plus) +
-  "</svg>";
+export const icon = (source, cls = "") => {
+  // 1. Direct SVG code
+  if (typeof source === "string" && source.trim().startsWith("<svg")) {
+    return source;
+  }
+
+  // 2. SVG file
+  if (typeof source === "string" && source.toLowerCase().endsWith(".svg")) {
+    return (
+      '<img class="icon ' +
+      cls +
+      '" src="' +
+      source +
+      '" alt="" aria-hidden="true">'
+    );
+  }
+
+  // 3. Existing built-in icon
+  return (
+    '<svg class="icon ' +
+    cls +
+    '" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    (paths[source] || paths.plus) +
+    "</svg>"
+  );
+};
 const sample = (text = "نمونه") =>
   '<span class="sample-label">' + text + "</span>";
 const imageMarkup = (src, alt, cls = "", eager = false) =>
@@ -319,7 +339,7 @@ function homePage(d) {
     e(d.home.eyebrow) +
     "</p><h1>" +
     e(d.home.titleLine1) +
-    "<br><span>" +
+    "<span>" +
     e(d.home.titleLine2) +
     '</span></h1><p class="hero-description">' +
     e(d.home.description) +
