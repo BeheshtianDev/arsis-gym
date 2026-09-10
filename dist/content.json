@@ -245,21 +245,21 @@
       "title": "فضای تمرین",
       "image": "./assets/images/gym-sample.webp",
       "alt": "تصویر نمونه از سالن تمرین؛ تصویر واقعی باشگاه نیست",
-      "sample": true
+      "sample": false
     },
     {
       "id": "gallery-2",
       "title": "آرامش پس از تمرین",
       "image": "./assets/images/recovery-sample.webp",
       "alt": "تصویر نمونه از فضای سونا و جکوزی؛ تصویر واقعی باشگاه نیست",
-      "sample": true
+      "sample": false
     },
     {
       "id": "gallery-3",
       "title": "فضای کراس‌فیت",
       "image": "",
       "alt": "محل قرارگیری تصویر کراس‌فیت باشگاه",
-      "sample": true
+      "sample": false
     }
   ],
   "schedule": [

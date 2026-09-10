@@ -305,6 +305,7 @@ function teamCard(t) {
 
 function faqSection(d) {
   if (!d.faq.length) return "";
+
   return (
     '<section class="section faq-section"><div class="container faq-layout"><div class="reveal"><p class="eyebrow">پیش از شروع</p><h2>شاید سؤال شما هم باشد.</h2><p class="muted">برای اطلاعات بیشتر با مجموعه در ارتباط باشید.</p>' +
     arrowLink("./contact.html", "تماس با آرسیس") +
@@ -312,12 +313,14 @@ function faqSection(d) {
     d.faq
       .map(
         (f) =>
-          '<details class="reveal"><summary>' +
+          '<div class="faq-item reveal">' +
+          '<button type="button" class="faq-question">' +
           e(f.question) +
           icon("plus") +
-          "</summary><p>" +
+          "</button>" +
+          '<div class="faq-answer"><p>' +
           e(f.answer) +
-          "</p></details>",
+          "</p></div></div>",
       )
       .join("") +
     "</div></div></section>"
@@ -644,7 +647,22 @@ function wireGallery(d) {
     }
   });
 }
+function wireFAQ() {
+  document.querySelectorAll(".faq-question").forEach((button) => {
+    button.addEventListener("click", () => {
+      const item = button.closest(".faq-item");
+      const isActive = item.classList.contains("active");
 
+      document.querySelectorAll(".faq-item.active").forEach((openItem) => {
+        openItem.classList.remove("active");
+      });
+
+      if (!isActive) {
+        item.classList.add("active");
+      }
+    });
+  });
+}
 function wireTabs(d) {
   const tabs = [...document.querySelectorAll("[data-plan-tab]")];
   if (!tabs.length) return;
@@ -757,6 +775,8 @@ async function start() {
     matchMedia("(min-width: 1001px)").addEventListener("change", close);
     wireTabs(d);
     wireGallery(d);
+    wireFAQ();
+
     document.querySelectorAll("img").forEach((img) => {
       const onError = () => {
         img.hidden = true;
